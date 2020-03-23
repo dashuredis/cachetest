@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/muesli/cache2go"
+	"github.com/dashuredis/cachetest"
 )
 
 // Keys & values in cache2go can be of arbitrary types, e.g. a struct.
@@ -15,7 +15,7 @@ type myStruct struct {
 
 func main() {
 	// Accessing a new cache table for the first time will create it.
-	cache := cache2go.Cache("myCache")
+	cache := cachetest.Cache("myCache")
 
 	// We will put a new item in the cache. It will expire after
 	// not being accessed via Value(key) for more than 5 seconds.
@@ -44,7 +44,7 @@ func main() {
 	cache.Add("someKey", 0, &val)
 
 	// cache2go supports a few handy callbacks and loading mechanisms.
-	cache.SetAboutToDeleteItemCallback(func(e *cache2go.CacheItem) {
+	cache.SetAboutToDeleteItemCallback(func(e *cachetest.CacheItem) {
 		fmt.Println("Deleting:", e.Key(), e.Data().(*myStruct).text, e.CreatedOn())
 	})
 

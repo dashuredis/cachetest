@@ -6,7 +6,7 @@
  *   For license see LICENSE.txt
  */
 
-package cache2go
+package cachetest
 
 import (
 	"sync"
