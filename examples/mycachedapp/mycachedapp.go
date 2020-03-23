@@ -27,6 +27,7 @@ func main() {
 	if err == nil {
 		fmt.Println("Found value in cache:", res.Data().(*myStruct).text)
 		fmt.Println("11111111111111111")
+		fmt.Println("2222222")
 	} else {
 		fmt.Println("Error retrieving value from cache:", err)
 	}
